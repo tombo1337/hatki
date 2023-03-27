@@ -44,7 +44,7 @@ optional arguments:
 | File / Folder | Description |
 | ----------- | ----------- |
 | css | Contais common CSS styles that are used by several pages. CSS that is specific to one html file, is contained in that specific file. |
-| html-generated | This folder will contain the generated html files. There is no need to push these files to git. |
+| generated-html | This folder will contain the generated html files. There is no need to push these files to git. |
 | html-templates | Contains the template html files, that contain the placeholders. |
 | images | Contains all images that are used in the html files. |
 | hatki.py | Pyhton programm that reads the template html files, requests data from Home Assistant, and generates the html pages |
