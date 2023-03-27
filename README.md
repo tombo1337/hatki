@@ -41,10 +41,13 @@ Requirements
 
 Example for a placeholder:
 
+
+```
 {{media_player.spotify_user1:attributes.media_artist}}
 {{sensor.doorbell_triggered:attributes.timestamp}}
 {{sensor.esp_temperature:state}}
 
+```
 
 Link to Homeassistant Community post: 
 https://community.home-assistant.io/t/hatki-homeassistant-to-kindle-kiosk-dashboard/552843
