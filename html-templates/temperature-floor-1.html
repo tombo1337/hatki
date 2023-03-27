@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="60">
+<title>Knö-Kontroll-Kindle</title>
+<link rel="stylesheet" href="../css/common-style.css">
+<style>
+    #label-living-room {
+    top: 130px;
+    left: 120px;
+    }
+    #label-office {
+        top: 100px;
+        left: 340px;
+    }
+    #label-stairs {
+        top: 215px;
+        left: 265px;
+    }
+    #label-wc {
+        top: 215px;
+        left: 370px;
+    }
+    #locked-wc {
+        top: 217px;
+        left: 358px;
+    }
+    #label-trash {
+        top: 460px;
+        left: 20px;
+    }
+    #label-kitchen {
+        top: 325px;
+        left: 90px;
+    }
+    #label-pantry {
+        top: 325px;
+        left: 290px;
+    }
+    #pantry-line {
+        z-index: 1000;
+        position: absolute;
+        top: 335px;
+        left: 230px;
+    }
+    #frontdoor {
+        top: 380px;
+        left: 360px;
+    }
+    #balconedoor {
+        top: 120px;
+        left: 65px;
+;
+    }
+
+</style>
+</head>
+<body>
+
+    <div id="wrapper">
+
+		<!-- HEADER START -->
+        <div id="header">
+            <div id="logo">
+                <span style="font-size: 50px;">knö</span><br>
+                <span style="font-size: 23px;">kontroll</span><br>
+                <span style="font-size: 30px;">kindle</span><br>
+            </div>
+    
+            <div id="main-menu">
+                <a href="temperature-floor-1.html">
+                    <div class="main-menu-item main-menu-active">
+                        <img src="../images/temperature-black.png" alt="Temperature"><br>
+                        Temperature
+                    </div>
+                </a>
+                <a href="lights.html">
+                    <div class="main-menu-item">
+                        <img src="../images/lights-white.png" alt="Lights"><br>
+                        Lights
+                    </div>
+                </a>
+                <a href="music.html">
+                    <div class="main-menu-item">
+                        <img src="../images/music-white.png" alt="Music"><br>
+                        Music
+                    </div>
+                </a>
+            </div>
+        </div>
+		<!-- HEADER END -->
+
+        <div id="content">
+		
+			<!-- SIDEBAR START-->
+            <div id="sidebar">
+                <a href="temperature-floor-2.html"><div class="sidebar-item">OG</div></a>
+                <a href="temperature-floor-1.html"><div class="sidebar-item sidebar-item-active">EG</div></a>
+                <a href="temperature-floor-0.html"><div class="sidebar-item">UG</div></a>
+            </div>
+			<!-- SIDEBAR END -->
+    
+
+            <!-- CONTENT START -->
+            <div id="groundplan">
+                <img src="../images/groundplan-1.png" class="groundPlanImg">
+
+                <svg id="pantry-line" height="60" width="60">
+                    <line x1="0" y1="60" x2="60" y2="0" 
+                    style="stroke:black;stroke-width:2" />
+                </svg>
+
+		<img class="icon-locked" id="balconedoor" src="../images/your_icon.png" alt="door-open">
+                <div class="room-label" id="label-living-room">
+                    Living Room<br>
+                    <span class="temperature">{{sensor.xxx:state}}°</span><br>
+                    {{sensor.xxx:state}}%
+                </div>
+                <div class="room-label" id="label-stairs">
+                    Stairs <br>
+                    <span class="temperature">{{sensor.xxx_temperature:state}}°</span><br>
+                    {{sensor.xxx_humidity:state}}%
+                </div>
+                <div class="room-label" id="label-office">
+                    Office<br>
+                    <span class="temperature">{{sensor.xxx:state}}°</span><br>
+                    {{sensor.xxx:state}}%
+                </div>
+		<img class="icon-locked" id="locked-wc" src="../images/your_icon.png" alt="locked-alert">
+                <div class="room-label" id="label-wc">
+		      WC<br>
+                        <span id="window_wc" class="temperature">{{sensor.xxx:state}}°</span><br>
+                        {{sensor.xxx_humidity:state}}%</div>
+                <div class="room-label" id="label-kitchen">
+                    Kitchen<br>
+                    <span class="temperature">{{sensor.xxx:state}}°</span><br>
+                    {{sensor.xxx:state}}%
+                </div>
+		<img class="icon-locked" id="frontdoor" src="../images/your_icon.png" alt="door-open">
+                <div class="room-label" id="label-pantry">
+                    Pantry<br>
+                    <span class="temperature">{{sensor.xxx:state}}°</span><br>
+                    {{sensor.xxx:state}}%
+                </div>
+                <div class="room-label" id="label-trash">
+                    Info: <br>
+		    Doorbell last triggered: {{sensor.doorbell_triggered:attributes.timestamp}}<br>
+                    Normal Waste in {{sensor.trash:state}} Day(s)<br>
+                    Paper in {{sensor.paper_trash:state}} Day(s)<br>
+                </div>
+            </div>
+            <!-- CONTENT END -->
+            <!-- Scripts START -->
+            
+               <script>
+               const wc_door_unlocked = "{{binary_sensor.xxx:state}}"
+               if (wc_door_unlocked === "off"){
+                    document.getElementById("locked-wc").style.visibility = "visible";
+               }else if (wc_door_unlocked === "on"){
+                    document.getElementById("locked-wc").style.visibility = "hidden";
+               }
+               const wc_window = "{{binary_sensor.xxx:state}}"
+               if (wc_window === "off"){
+                    document.getElementById("label-wc").style.color = "black";
+               }else if (wc_window === "on"){
+                    document.getElementById("label-wc").style.color = "white";
+                    document.getElementById("label-wc").style.textShadow = "2px 2px 4px black";
+               }
+               const front_door = "{{binary_sensor.xxx:state}}"
+               if (front_door === "off"){
+                    document.getElementById("frontdoor").style.visibility = "hidden";
+               }else if (front_door === "on"){
+                    document.getElementById("frontdoor").style.visibility = "visible";
+               }
+               const balcone_door = "{{binary_sensor.xxx:state}}"
+               if (balcone_door === "off"){
+                    document.getElementById("balconedoor").style.visibility = "hidden";
+               }else if (balcone_door === "on"){
+                    document.getElementById("balconedoor").style.visibility = "visible";
+               }
+
+               </script>
+        </div><!-- /content -->
+    </div><!-- /wrapper -->
+</body>
+</html>

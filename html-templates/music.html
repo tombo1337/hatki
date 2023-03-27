@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="300">
+<title>Knö-Kontroll-Kindle</title>
+<link rel="stylesheet" href="../css/common-style.css">
+<style>
+
+</style>
+</head>
+<body>
+
+    <div id="wrapper">
+
+		<!------------------------- HEADER START ----------------------------->
+        <div id="header">
+            <div id="logo">
+                <span style="font-size: 50px;">knö</span><br>
+                <span style="font-size: 23px;">kontroll</span><br>
+                <span style="font-size: 30px;">kindle</span><br>
+            </div>
+    
+            <div id="main-menu">
+                <a href="temperature-floor-1.html">
+                    <div class="main-menu-item">
+                        <img src="../images/temperature-white.png" alt="Temperature"><br>
+                        Temperature
+                    </div>
+                </a>
+                <a href="lights.html">
+                    <div class="main-menu-item">
+                        <img src="../images/lights-white.png" alt="Lights"><br>
+                        Lights
+                    </div>
+                </a>
+                <a href="music.html">
+                    <div class="main-menu-item main-menu-active">
+                        <img src="../images/music-black.png" alt="Music"><br>
+                        Music
+                    </div>
+                </a>
+            </div>
+        </div>
+		<!------------------------- HEADER END ----------------------------->
+
+        <div id="content">
+            <!------------------------- CONTENT START ----------------------------->
+
+                <br><br>
+                <h1>Spotify Tom ({{media_player.spotify_XXX:state}})</h1>
+                <p class="font-150-percent">
+                <!-- {{media_player.spotify_XX:attributes.entity_picture}} -->
+                <img src="media_player.spotify_XXX.jpg"  style="float:left;width:80px;height:80px;"/> 
+                    &nbsp;{{media_player.spotify_XXX:attributes.media_artist}}<br>
+                    &nbsp;{{media_player.spotify_XXX:attributes.media_title}}<br>
+                </p>
+                
+                <h1>Knö Multi Stream({{media_player.knoefm:state}})</h1>
+                <p class="font-150-percent">
+                    {{media_player.knoefm:attributes.media_artist}}<br>
+                    {{media_player.knoefm:attributes.media_title}}<br>
+                </p>
+
+
+
+                
+                    
+                    
+            <!------------------------- CONTENT END ----------------------------->
+
+        </div><!-- /content -->
+
+    </div><!-- /wrapper -->
+</body>
+</html>

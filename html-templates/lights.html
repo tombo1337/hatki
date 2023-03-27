@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="300">
+<title>Homeassistant to kindle</title>
+<link rel="stylesheet" href="../css/common-style.css">
+<style>
+
+</style>
+</head>
+<body>
+
+    <div id="wrapper">
+
+		<!------------------------- HEADER START ----------------------------->
+        <div id="header">
+            <div id="logo">
+                <span style="font-size: 50px;">You</span><br>
+                <span style="font-size: 23px;">controll</span><br>
+                <span style="font-size: 30px;">HA</span><br>
+            </div>
+    
+            <div id="main-menu">
+                <a href="temperature-floor-1.html">
+                    <div class="main-menu-item">
+                        <img src="../images/temperature-white.png" alt="Temperature"><br>
+                        Temperature
+                    </div>
+                </a>
+                <a href="lights.html">
+                    <div class="main-menu-item main-menu-active">
+                        <img src="../images/lights-black.png" alt="Lights"><br>
+                        Lights
+                    </div>
+                </a>
+                <a href="music.html">
+                    <div class="main-menu-item">
+                        <img src="../images/music-white.png" alt="Music"><br>
+                        Music
+                    </div>
+                </a>
+            </div>
+        </div>
+		<!------------------------- HEADER END ----------------------------->
+
+        <div id="content">
+            <!------------------------- CONTENT START ----------------------------->
+
+                <div id="lights">
+
+                    <br>
+
+                    <table>
+                        <!----- OG ----->
+                        <tr>
+                            <td rowspan="2" class="floor">OG</td>
+                            <td>Tom</td>
+                            <td></td>
+                            <td>Flur</td>
+                            <td>Guestroom</td>
+                        </tr>
+                        <tr>
+                            <td><div class="{{switch.XXX:state}}"><span>Light</span></div></td>
+                            <td><div class="{{light.wled:state}}"><span>Light-<br>string</span></div></td>
+                            <td><div class="{{light.wled2:state}}"><span>Window-<br>LEDs</span></div></td>
+                            <td><div class="{{switch.XXX:state}}"><span>Light</span></div></td>
+                        </tr>
+
+                        <!----- EG ----->
+                        <tr>
+                            <td rowspan="6" class="floor">EG</td>
+                            <td>Living</td>
+                            <td>Office</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><div class="{{light.XXX:state}}"><span>Light</span></div></td>
+                            <td><div class="{{switch.XXX:state}}"><span>Light</span></div></td>
+                            <td><div class="{{light.wled2:state}}"><span>Desk<br>Tom</span></div></td>
+                            <td><div class="{{switch.3d_printer:state}}"><span>3D<br>Printer</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>Kitchen</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><div class="{{switch.XXX:state}}"><span><br></span></div></td>
+                            <td><div class="{{group.XX:state:state}}"><span></span></div></td>
+                            <td><div class="{{switch.XX:state}}"><span></span></div></td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+                    
+                </div><!-- /lights -->
+
+            <!------------------------- CONTENT END ----------------------------->
+
+        </div><!-- /content -->
+    </div><!-- /wrapper -->
+</body>
+</html>
