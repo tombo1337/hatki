@@ -10,7 +10,7 @@
 ```
 ## What this project does
 
-This Project is intendet to gives old Devices such as a Amazon Kindle a new life by enabeling them to represent Homeassistant enteties. 
+This Project is intented to gives old Devices such as a Amazon Kindle a new life by enabeling them to represent Homeassistant enteties. 
 
 This project contains template HTML files. These files are read by the python
 script. The python script requests data from Home Assistant and uses that data
